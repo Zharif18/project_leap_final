@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CampusFind - Lost and Found</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<!-- ============ LOGIN / REGISTER ============ -->
+<section id="authView" class="auth" hidden>
+    <div class="auth-intro">
+        <h1>CampusFind</h1>
+        <p class="lede">Lost your ID card, charger or calculator? Report it here. When security logs something
+            that fits, CampusFind lines the two up so you can get it back.</p>
+        <div class="demo">
+            <h3>Demo accounts</h3>
+            <table>
+                <tr><td>Admin</td><td>admin@campus.com</td><td>admin123</td></tr>
+                <tr><td>Staff</td><td>staff@campus.com</td><td>staff123</td></tr>
+                <tr><td>Student</td><td>student@campus.com</td><td>student123</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="panel auth-card">
+        <div class="tabs" role="tablist">
+            <button class="tab active" data-tab="login" role="tab">Log in</button>
+            <button class="tab" data-tab="register" role="tab">Create account</button>
+        </div>
+
+        <form id="loginForm" class="form">
+            <label>Email<input type="email" name="email" required autocomplete="username"></label>
+            <label>Password<input type="password" name="password" required autocomplete="current-password"></label>
+            <button class="btn primary">Log in</button>
+        </form>
+
+        <form id="registerForm" class="form" hidden>
+            <label>Full name<input name="name" maxlength="100" required></label>
+            <label>Email<input type="email" name="email" maxlength="150" required></label>
+            <label>Password (6+ characters)<input type="password" name="password" minlength="6" required autocomplete="new-password"></label>
+            <label>I am a
+                <select name="role" id="roleSelect">
+                    <option value="STUDENT">Student</option>
+                    <option value="STAFF">Staff member</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+            </label>
+            <label id="adminCodeRow" hidden>Admin code<input name="adminCode" placeholder="Ask your administrator"></label>
+            <button class="btn primary">Create account</button>
+        </form>
+    </div>
+</section>
+
+<!-- ============ MAIN APP ============ -->
+<section id="appView" hidden>
+    <header class="topbar">
+        <div class="brand">CampusFind</div>
+        <div class="who">
+            <span id="whoami"></span>
+            <button class="btn ghost small" id="logoutBtn">Log out</button>
+        </div>
+    </header>
+    <nav id="nav" class="nav" aria-label="Main"></nav>
+    <main id="content" class="content"></main>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
