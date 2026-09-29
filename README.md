@@ -26,6 +26,13 @@ No IntelliJ? From this folder run: `mvn spring-boot:run`
 | Staff | staff@campus.com | staff123 |
 | Student | student@campus.com | student123 |
 
+## Sample data (created on first start)
+Besides the three demo accounts above, the app seeds extra users (`ravi.staff@campus.com` / `staff123`;
+`priya@campus.com`, `arjun@campus.com`, `meena@campus.com` / `student123`), 8 found items and 8 lost reports
+covering every status (OPEN, MATCHED, RETURNED; AVAILABLE, CLAIMED, RETURNED), so matching and the admin dashboard
+have something to show. Sample reports are only added when the `lost_reports` and `found_items` tables are empty.
+To reload them: delete the rows (or drop the `campusfind` database) and restart.
+
 To register a new **ADMIN** through the API/UI you must send `adminCode` = `CAMPUS2026` (set in `application.properties`). Students and staff register freely.
 
 ## Database design
